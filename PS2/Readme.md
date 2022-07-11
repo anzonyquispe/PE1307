@@ -1,0 +1,1 @@
+This folder has graphs and maps created using QGIS. We use Inside Airbnb and INDEC Buenos Aires Data - Census 2010 to generate maps. Additionally, we use folium to replicate the same results as QGIS.
