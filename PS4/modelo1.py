@@ -38,31 +38,6 @@ class Modelo1(QgsProcessingAlgorithm):
         results = {}
         outputs = {}
 
-        ####### Field calculator ########
-        # Parametros para field_calculator
-        alg_params = {
-            'FIELD_LENGTH': 10, # largo del resultado 
-            'FIELD_NAME': 'lnm', # variable a generar
-            'FIELD_PRECISION': 0, # precision
-            'FIELD_TYPE': 2,  # tipo de variable (String)
-            'FORMULA': '"NAME_PROP"', # variable a utilizar
-            'INPUT': 'menor_a_11_5ba9e026_dc17_4286_a8ed_af859dabd2a4', # Capa input
-            'OUTPUT': parameters['Field_calc']
-        }
-
-        # Corre fieldcalculator con los parametros de arriba y guarda el output en
-        # outputs['FieldCalculator']
-        outputs['FieldCalculator'] = processing.run('native:fieldcalculator', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
-        
-        # Toma el ['OUTPUT'] de lo de arriba y lo guarda en results['Field_calc']
-        results['Field_calc'] = outputs['FieldCalculator']['OUTPUT']
-
-        # Pasa al siguiente step
-        feedback.setCurrentStep(1)
-        # Frena el proceso si se canceló
-        if feedback.isCanceled():
-            return {}
-
         ####### Fix geometries ########
         # Parametros de Fix geometries
         alg_params = {
@@ -76,6 +51,33 @@ class Modelo1(QgsProcessingAlgorithm):
 
         # Toma el ['OUTPUT'] de lo de arriba y lo guarda en results['Fix_geo']
         results['Fix_geo'] = outputs['FixGeometries']['OUTPUT']
+
+        # Pasa al siguiente step
+        feedback.setCurrentStep(1)
+        # Frena el proceso si se canceló
+        if feedback.isCanceled():
+            return {}
+
+        ####### Add autoincremental field ########
+        # Parametros de Add autoincremental field
+        alg_params = {
+            'FIELD_NAME': 'GID',  # variable a generar
+            'GROUP_FIELDS': [''],
+            'INPUT': outputs['FixGeometries']['OUTPUT'], # el input es el output de FixGeometries
+            'MODULUS': 0,
+            'SORT_ASCENDING': True,
+            'SORT_EXPRESSION': '',
+            'SORT_NULLS_FIRST': False,
+            'START': 1,
+            'OUTPUT': parameters['Autoinc_id'] # output
+        }
+
+        # Corre Add autoincremental field con los parametros de arriba y guarda el output en
+        # outputs['AddAutoincrementalField']
+        outputs['AddAutoincrementalField'] = processing.run('native:addautoincrementalfield', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
+
+        # Toma el ['OUTPUT'] de lo de arriba y lo guarda en results['Autoinc_id']
+        results['Autoinc_id'] = outputs['AddAutoincrementalField']['OUTPUT']
 
         # Pasa al siguiente step
         feedback.setCurrentStep(2)
@@ -131,6 +133,32 @@ class Modelo1(QgsProcessingAlgorithm):
         if feedback.isCanceled():
             return {}
 
+        ####### Field calculator ########
+        # Parametros para field_calculator
+        alg_params = {
+            'FIELD_LENGTH': 10, # largo del resultado 
+            'FIELD_NAME': 'lnm', # variable a generar
+            'FIELD_PRECISION': 0, # precision
+            'FIELD_TYPE': 2,  # tipo de variable (String)
+            'FORMULA': '"NAME_PROP"', # variable a utilizar
+            'INPUT': 'menor_a_11_5ba9e026_dc17_4286_a8ed_af859dabd2a4', # Capa input
+            'OUTPUT': parameters['Field_calc']
+        }
+
+        # Corre fieldcalculator con los parametros de arriba y guarda el output en
+        # outputs['FieldCalculator']
+        outputs['FieldCalculator'] = processing.run('native:fieldcalculator', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
+        
+        # Toma el ['OUTPUT'] de lo de arriba y lo guarda en results['Field_calc']
+        results['Field_calc'] = outputs['FieldCalculator']['OUTPUT']
+
+        # Pasa al siguiente step
+        feedback.setCurrentStep(5)
+
+        # Frena el proceso si se canceló
+        if feedback.isCanceled():
+            return {}
+
         ####### Drop field(s) ########
         # Parametros de Drop field(s)
         alg_params = {
@@ -146,33 +174,6 @@ class Modelo1(QgsProcessingAlgorithm):
         # Toma el ['OUTPUT'] de lo de arriba y lo guarda en results['Wldsout']
         results['Wldsout'] = outputs['DropFields']['OUTPUT']
 
-        # Pasa al siguiente step
-        feedback.setCurrentStep(5)
-
-        # Frena el proceso si se canceló
-        if feedback.isCanceled():
-            return {}
-
-        ####### Add autoincremental field ########
-        # Parametros de Add autoincremental field
-        alg_params = {
-            'FIELD_NAME': 'GID',  # variable a generar
-            'GROUP_FIELDS': [''],
-            'INPUT': outputs['FixGeometries']['OUTPUT'], # el input es el output de FixGeometries
-            'MODULUS': 0,
-            'SORT_ASCENDING': True,
-            'SORT_EXPRESSION': '',
-            'SORT_NULLS_FIRST': False,
-            'START': 1,
-            'OUTPUT': parameters['Autoinc_id'] # output
-        }
-
-        # Corre Add autoincremental field con los parametros de arriba y guarda el output en
-        # outputs['AddAutoincrementalField']
-        outputs['AddAutoincrementalField'] = processing.run('native:addautoincrementalfield', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
-
-        # Toma el ['OUTPUT'] de lo de arriba y lo guarda en results['Autoinc_id']
-        results['Autoinc_id'] = outputs['AddAutoincrementalField']['OUTPUT']
         # Devuelve el diccionario results
         return results
 
