@@ -173,6 +173,7 @@ class Modelo1(QgsProcessingAlgorithm):
 
         # Toma el ['OUTPUT'] de lo de arriba y lo guarda en results['Autoinc_id']
         results['Autoinc_id'] = outputs['AddAutoincrementalField']['OUTPUT']
+        # Devuelve el diccionario results
         return results
 
 
