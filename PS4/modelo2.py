@@ -94,7 +94,7 @@ class Modelo2(QgsProcessingAlgorithm):
     def group(self):
         return ''
 
-    # ID del grupo}
+    # ID del grupo
     def groupId(self):
         return ''
 
