@@ -1,0 +1,23 @@
+Data Visualization
+
+Cheatsheet:
+https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf
+
+Clase:
+https://github.com/TrainingByPackt/Applied-Data-Visualization-with-R-and-ggplot2
+
+Libro: Tania Moulik. “Applied Data Visualization with R and ggplot2.” 
+https://b-ok.lat/book/3610139/f50727?regionChanged=&redirect
+https://libgen.li/edition.php?id=138053069
+
+EXTRA:
+Mapas:
+https://github.com/Robinlovelace/Creating-maps-in-R
+
+Gráficos lindos
+https://github.com/jennybc/ggplot2-tutorial
+
+Libro: ggplot2: Elegant Graphics for Data Analysis by Hadley Wickham
+https://ggplot2-book.org/index.html
+GitHub https://github.com/hadley/ggplot2-book
+Maps: https://github.com/hadley/ggplot2-book/blob/master/maps.Rmd
