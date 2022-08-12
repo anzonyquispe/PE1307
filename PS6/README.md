@@ -8,3 +8,4 @@
 - **capitales_georef.csv**: csv con las capitales de corrientes georeferenciadas
 - **mapa_ruta_mas_cercana.png**: mapa con la ruta más cercana
 - **matriz de od.csv**: csv con la matriz de OD
+- **Getting_cabecera.ipynb**: Notebook para scrapear las cabeceras utilizando beautifoul soup.
