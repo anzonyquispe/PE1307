@@ -1,0 +1,11 @@
+# Trabajo Final
+- **basededatos.csv**: base de datos de Nunn (2011).
+- **confianza en parientes y exportacion.png**: gráfico de barras de las variables que indican el nivel de confianza en parientes y los niveles de exportación de esclavos.
+- **gráficos.do**: do file para crear gráficos.
+- **living_conditions.png**: mapa de la variable que indica las condiciones de vida.
+- **mapa_completo.png** y **mapa_nuevo_completo.png**: mapa con las fronteras de las tribus, rutas de exploración y líneas de ferrocarriles coloniales en África.
+- **mapa_export_pop.png** y **mapa_export_pop1.png**: mapa sobre la variable que indica la cantidad de exportaciones de esclavos.
+- **presencia_hospitales.png**: mapa sobre la variable que indica si hay presencia de hospitales.
+-**replica.png**: mapa réplica de Nunn (2011).
+-**ruta.png**: mapa de la ruta más corta entre dos localidades africanas.
+-**Trabajo_final.pdf**: pdf con mapas y gráficos sobre el trabajo de Nunn (2011).
