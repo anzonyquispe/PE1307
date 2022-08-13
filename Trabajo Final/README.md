@@ -1,4 +1,7 @@
 # Trabajo Final
+- **_data**: base de datos para Nunn (2011).
+- **_Literature**: Nunn (2011).
+-**_output**: gráficos de las variables de Confianza y Esclavitud y el histograma de las exportaciones de esclavos.
 - **basededatos.csv**: base de datos de Nunn (2011).
 - **confianza en parientes y exportacion.png**: gráfico de barras de las variables que indican el nivel de confianza en parientes y los niveles de exportación de esclavos.
 - **gráficos.do**: do file para crear gráficos.
@@ -7,5 +10,6 @@
 - **mapa_export_pop.png** y **mapa_export_pop1.png**: mapa sobre la variable que indica la cantidad de exportaciones de esclavos.
 - **presencia_hospitales.png**: mapa sobre la variable que indica si hay presencia de hospitales.
 -**replica.png**: mapa réplica de Nunn (2011).
+-**Replication.ipynb**: código de jupyter con los gráficos.
 -**ruta.png**: mapa de la ruta más corta entre dos localidades africanas.
 -**Trabajo_final.pdf**: pdf con mapas y gráficos sobre el trabajo de Nunn (2011).
