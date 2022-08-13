@@ -1,7 +1,7 @@
 # Problem Set 6
 - **_output**: resultado del código para la matriz OD
 - **junk**: necesario para el código de la matriz OD
-- **corrección capitales**: código para corregir el csv de capitales
+- **corrección capitales**: código para corregir el csv de capitales y webscraping de capitales
 - **shapefile capitales**: todos los archivos del shapefile de capitales
 - **shapefile ruta más corta**: todos los archivos del shapefile de la ruta más corta
 - **shapefile rutas**: todos los archivos del shapefile de rutas
